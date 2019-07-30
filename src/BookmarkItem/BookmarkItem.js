@@ -8,21 +8,21 @@ export default function BookmarkItem(props) {
       <div className='BookmarkItem__row'>
         <h3 className='BookmarkItem__title'>
           <a
-            href={props.url}
+            href={props.bookmark_link}
             target='_blank'
             rel='noopener noreferrer'>
-            {props.title}
+            {props.bookmark_site}
           </a>
         </h3>
-        <Rating value={props.rating} />
+        <Rating value={props.bookmark_rating} />
       </div>
       <p className='BookmarkItem__description'>
-        {props.description}
+        {props.bookmark_desc}
       </p>
       <div className='BookmarkItem__buttons'>
         <button
           className='BookmarkItem__description'
-          onClick={() => props.onClickDelete(props.id)}
+          onClick={() => props.onClickDelete(props.bookmark_id)}
         >
           Delete
         </button>
@@ -32,5 +32,7 @@ export default function BookmarkItem(props) {
 }
 
 BookmarkItem.defaultProps = {
-  onClickDelete: () => {},
+  onClickDelete: () => {
+    console.log(`delete`)
+  },
 }

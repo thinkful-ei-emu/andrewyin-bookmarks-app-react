@@ -20,10 +20,10 @@ class AddBookmark extends Component {
     // get the form fields from the event
     const { title, url, description, rating } = e.target
     const bookmark = {
-      title: title.value,
-      url: url.value,
-      description: description.value,
-      rating: rating.value,
+      bookmark_site: title.value,
+      bookmark_link: url.value,
+      bookmark_desc: description.value,
+      bookmark_rating: rating.value,
     }
     this.setState({ error: null })
     fetch(config.API_ENDPOINT, {
@@ -49,7 +49,7 @@ class AddBookmark extends Component {
         url.value = ''
         description.value = ''
         rating.value = ''
-        this.props.onAddBookmark(data)
+        this.props.onAddBookmark(data[0])
       })
       .catch(error => {
         this.setState({ error })
